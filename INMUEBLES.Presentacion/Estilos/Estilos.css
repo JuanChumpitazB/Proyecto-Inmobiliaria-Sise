@@ -1,0 +1,326 @@
+﻿*{
+    margin:0;
+    padding:0;
+}
+
+body {
+    background: #FFFFFA;
+    font-family:'Maiandra GD';
+}
+/*-------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------- MENU --------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------*/
+header{
+    width:100%;
+    text-align:center;
+    margin-bottom:-20px;
+}
+header nav{
+    width:100%;
+    margin: 0px auto;
+    background:rgba(240,240,250,.25);
+    border-bottom:1px solid #037E8C;
+    z-index:1000;
+
+    /*position:fixed;*/
+}
+.menu_bar{
+    display:none;/*Desaparecemos el Menu*/
+}
+/*
+header nav ul{
+    overflow:hidden;
+    list-style:none;
+}
+header nav ul li{
+    float:left;
+}*/
+header nav ul{
+    list-style:none;
+}
+header nav ul li{
+    display:inline-block;
+    position:relative;
+}
+header nav ul li a {
+    color:#037E8C;
+    padding:12px;
+    display:block;
+    text-decoration:none;
+    width:90px;
+}
+header nav ul li span{
+    margin-right:10px;
+}
+header nav ul li a:hover{
+    background:rgba(240,240,250,.3);
+}
+header nav ul li:hover .children{
+    display:block;
+}
+header nav ul li .children{
+    display:none;
+    background:rgba(240,240,250,.9);
+    position:absolute;
+    width: 150%;
+    z-index:1000;
+}
+header nav ul li .children li{
+    display:block;
+    overflow:hidden;
+    border-bottom:1px solid rgba(205,205,205,.5);
+}
+header nav ul li .children li a{
+    display:block;
+}
+header nav ul li .children li a span{
+    float:right;
+    position:relative;
+    top: 3px;
+    margin-right:0;
+    margin-left:10px;
+}
+header nav ul li .caret{
+    position:relative;
+    top:3px;
+    margin-left:10px;
+    margin-right:0px;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------- RESPONSIVE -----------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------*/
+
+@media screen and (max-width:800px){
+    body{
+        padding-top:80px;
+    }
+    
+    header nav{
+        width:80%;
+        height:calc(100% - 80px);
+        background:white;
+        right:100%;
+        margin:0;
+        position:fixed;
+        overflow:scroll;
+        padding-top:20px;
+        border-right:1px solid #024959;
+    }
+    header nav ul li{
+        display:block;
+        float:none;
+        border-bottom:#024959;
+    }
+    header nav ul li a{
+        display:block;
+        color:#024959;
+    }
+     header nav ul li a:hover{
+        color:#024959;
+        background:rgba(200,200,200,.7);
+    }
+    header nav ul li .children{
+        width:100%;
+        position:relative;
+        border-bottom:#024959;
+    }
+    header nav ul li:hover .children{
+        display:none; /*El Sub Menu no aparecera al pasar el mouse*/
+        background:rgba(200,200,200,.7);
+    }
+    header nav ul li .children li a{
+        margin-left:20px;
+        background:white;
+    }
+    header nav ul li .caret{
+        float:right;
+    }
+
+    .menu_bar{
+        display:block;
+        width:100%;
+        background:#ccc;
+        position:fixed;
+        top:0;
+    }
+    .menu_bar .bt-menu{
+        display:block;
+        padding:20px;
+        background:#024959;
+        color:#fff;
+        text-decoration:none;
+        font-weight:bold;
+        font-size:25px;
+        -webkit-box-sizing:border-box;
+        -moz-box-sizing:border-box;
+        box-sizing:border-box;
+    }
+    .menu_bar span{
+        float:right;
+        font-size:40px;
+    }
+
+    /*-------------------------------------------------*/
+
+    
+    .contenido .titulo{
+        font-size:27px;
+    }
+    .contenido .tablaDatos{
+        font-size:15px;
+    }
+    .contenido .tablaDatos th{
+        font-size:12px;
+    }
+    .contenido {
+        height: 1750px;
+        overflow-x:scroll;
+    }
+    .contenido .tablaForm{
+
+    }
+    .contenido .tablaForm{
+        font-size:14px;
+    }
+    .contenido .tablaForm tr td input[type="text"],button[type="submit"],select,date{
+        font-size:12px;
+    }
+
+} 
+
+/*-------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------- CONTENIDO ------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------*/ 
+
+.contenido{
+    padding:20px;/*Estaciado a los lados*/
+
+    /*margin-left: 100%;*/
+    /*margin-bottom: auto;*/
+    max-width:calc( 100% - 80px);
+    /*border: 1px solid black;*/
+    height: 100%;
+    /*height:1000px*/
+    /*background: url("fondo_gente_.jpg");*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: url('fondo_gente_.jpg');
+    /*overflow: scroll;*/
+}
+
+.encabezado {
+    height: 250px;
+    /*border: 1px solid black;*/
+    /*opacity: 0.8;*/
+    /*background: url("Fondo EncabezadoMini.jpg");*/
+    background-image: url('EncabezadoJuccomp.jpg');
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.titulo{
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    color: #034265;        
+}
+.tablaDatos{
+    text-align:center;
+    margin: 0 auto;
+    border: 1px solid #034265;
+    border-collapse: collapse;     
+    font-size:15px;  
+}
+.tablaDatos th{
+    background: #024959;
+    color: #ffffff;
+    padding: 10px;
+    border: 1px solid #c3a898;
+    font-size: 18px;
+}
+.tablaDatos td{
+    padding: 8px;
+    font-weight: bold;
+    border: 1px solid white;
+    background: #efd7c9;
+    color: #0f1934;
+}
+.tablaDatos tr:hover td{
+    background: #ffdb00;
+    color: #000000;
+    font-weight: bold;
+}
+.tablaForm{
+    margin: 0 auto;
+    border: 1px solid #034265;
+    border-radius: 8px;
+    background: #0f1934;
+    color: #ffffff;
+    box-shadow: 0 0 20px #000000;
+    margin-bottom: 25px;
+    width: 80px;
+    font-weight: bold;
+
+}
+.tablaForm td{
+    padding: 15px;
+}
+.tablaForm input[type="text"]{
+    /*border-radius: 7px;*/
+    padding:12px;
+    color: white;
+    font-size:18px;
+    border:none;
+    background: none;
+    -webkit-appearance: textfield;
+    border-bottom: 2px solid #ffffff;
+    font-family: 'Segoe UI';
+    -webkit-rtl-ordering:logical;
+    outline:none;
+    /*background-color: #28de9a;*/
+}
+.tablaForm select, date{
+    padding: 5px;
+    font-size:15px;
+    background-color: #9afadc;
+    color:black;
+    font-weight: bold;
+    border-radius:5px;
+}
+
+.tablaForm button[type="submit"]{
+    background: #077c18;
+    border: 1px solid #ffdb00;
+    border-radius: 8px;
+    padding: 8px;
+    font-weight: bold;
+    font-size:15px;
+    color: white;
+    cursor: pointer;
+}
+.tablaForm button[type="submit"]:hover{
+    box-shadow: inset 0 0 15px #000000;
+}
+
+.mensaje{
+    padding-left: 30px;
+    font-weight: bold;
+    color: #68c300;
+}
+.error{
+    padding-left: 30px;
+    font-weight: bold;
+    color: #ff0101;
+}
+
+.EliminarActualizarWEB{
+    background-color: #ddddc2;
+    font-size: 12px;
+    text-decoration: none;
+    color: white;
+}
+

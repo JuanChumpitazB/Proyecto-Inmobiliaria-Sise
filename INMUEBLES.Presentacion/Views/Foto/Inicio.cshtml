@@ -1,0 +1,23 @@
+﻿@model List<INMUEBLES.Entidades.FotoE>
+
+@{
+    ViewBag.Title = "Inicio";
+    Layout = "~/Views/Layout/_LayoutInicio.cshtml";
+
+    var lstInmuebles = ViewBag.ListaInmuebles;
+}
+
+<div class="subtitulo">Inmuebles en Venta</div>
+
+
+    @foreach (var item in Model)
+    {
+
+        <div class="publicacion">
+            <a href="">
+                <div><img src="@item.FotoURL" width="240" height="180"/></div>
+            </a>
+        </div>
+    }
+
+

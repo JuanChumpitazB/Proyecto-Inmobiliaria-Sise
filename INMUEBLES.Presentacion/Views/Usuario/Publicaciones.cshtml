@@ -1,0 +1,50 @@
+﻿@model List<INMUEBLES.Entidades.PublicacionE>
+
+@{
+    ViewBag.Title = "Publicaciones";
+    Layout = "~/Views/Layout/_LayoutLogueado.cshtml";
+
+
+    var usuarioLogueado = ViewBag.UsuarioLogueado;
+    var lstPublicaciones = ViewBag.ListaPublicaciones;
+}
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+
+
+<div class="subtitulo">Publicaciones De @ViewBag.UsuarioLogueado</div>
+
+<div class="conjuntoDeBloques">
+    <div class="bloquePublicacion">
+        @foreach (var item in Model)
+        {
+
+            <div class="publicacion">
+                <a href="/Inmuebles/ActualizarInmueble/@item.inmuebleE.idInmueble">
+
+                    <div>@item.inmuebleE.tipoInmuebleE.descripcion</div>
+                    <div>@item.inmuebleE.distritoE.distrito</div>
+
+                    <div><img src="@item.fotoE.FotoURL" width="250" height="180" /></div>
+
+
+                    <div class="iconos">
+                        <img src="~/Iconos/Inodoro.png" width="20" />  @item.inmuebleE.baños
+                        <img src="~/Iconos/cama.png" width="20" />  @item.inmuebleE.dormitorios
+                        <img src="~/Iconos/Estacionamiento.png" width="20" /> @item.inmuebleE.garage
+                    </div>
+
+                    <div align="right">S/ @item.inmuebleE.precio</div>
+
+                </a>
+            </div>
+            
+            @*<div class="EditarEliminar">@Html.ActionLink("Editar", "ActualizarInmueble", "Inmuebles", new { idInmueble = item.inmuebleE.idInmueble }, null)</div>*@
+        }
+    </div>
+</div>
+
+<br />
+<a href="/Inmuebles/AgregarInmueble/@ViewBag.IDPropietario">Agregar Inmueble</a>
+
+

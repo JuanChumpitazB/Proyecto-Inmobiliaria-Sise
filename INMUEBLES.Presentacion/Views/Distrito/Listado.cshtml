@@ -1,0 +1,29 @@
+﻿@model List<INMUEBLES.Entidades.DistritoE>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Listado</title>
+</head>
+<body>
+    <table border="1" align="center"> 
+        <tr>
+            <th>ID</th>
+            <th>DISTRITOS</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.idDistrito</td>
+                <td>@item.distrito</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

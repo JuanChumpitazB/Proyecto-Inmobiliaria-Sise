@@ -1,0 +1,101 @@
+﻿@model INMUEBLES.Entidades.InmuebleE
+
+@{
+    ViewBag.Title = "AgregarInmueble";
+    Layout = "~/Views/Layout/_LayoutLogueado.cshtml";
+
+    var idPropietario = ViewBag.idPropietario;
+    var lstTipoInmueble = ViewBag.TiposDeInmueble;
+    var lstDistritos = ViewBag.ListaDistrito;
+    var lstOperaciones = ViewBag.ListaOperaciones;
+
+}
+
+<div class="titulo">Agregar Inmueble</div>
+<table class="tablaInmuebleAgregar">
+    @using (Html.BeginForm("InsertarInmueble", "Inmuebles", FormMethod.Post))
+    {
+        <tr>
+            <td><input type="hidden" name="txtIDPropietario" value="@idPropietario"  /></td>
+        </tr>
+        <tr>
+            <th colspan="5">Descripcion: </th>
+        </tr>
+        <tr>
+            <td colspan="5"><input type="text" name="txtDescripcion" /></td>
+        </tr>
+        <tr>
+            <th colspan="4">Direccion: </th>
+            <th>Distrito: </th>
+        </tr>
+        <tr>
+            <td colspan="4"><input type="text" name="txtDireccion" /></td>
+            <td>
+                <select name="cboDistrito">
+                    @foreach (var item in lstDistritos)
+                {
+                        <option value="@item.idDistrito">@item.distrito</option>
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>Antiguedad: </th>
+            <th>Baños: </th>
+            <th>Dormitorios: </th>
+            <th>Superficie: </th>
+            <th>Garage: SI/NO</th>
+        </tr>
+        <tr>
+            <td><input type="text" name="txtAntiguedad" maxlength="7" /></td>
+            <td><input type="text" name="txtBaños" maxlength="2" /></td>
+            <td><input type="text" name="txtDormitorios" maxlength="1" /></td>
+            <td><input type="text" name="txtSupierficie" maxlength="15" /></td>
+            <td>
+                <select name="cboGarage">
+                    <option>SI</option>
+                    <option>NO</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>Estado : </th>
+            <th>Tipo Inmueble: </th>
+            <th>Operacion: </th>
+        </tr>
+        <tr>
+            <td>
+                <select name="cboEstado">
+                    <option>DISPONIBLE</option>
+                    <option>NO DISPONIBLE</option>
+                </select>
+            </td>
+            <td>
+                <select name="cboTipoInmueble">
+                    @foreach (var item in lstTipoInmueble)
+                {
+                        <option value="@item.idTipoInmueble">@item.descripcion</option>
+                    }
+                </select>
+            </td>
+            <td>
+                <select name="cboOperacion">
+                    @foreach (var item in lstOperaciones)
+                    {
+                        <option value="@item.idOperacion">@item.descripcion</option>
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>Precio: </th>
+        </tr>
+        <tr>
+            <td>S/.  <input type="text" name="txtPrecio" /></td>
+        </tr>
+        <tr>
+            <td colspan="3" align="right"><button class="" type="submit">Actualizar</button></td>
+        </tr>
+    }
+</table>
+

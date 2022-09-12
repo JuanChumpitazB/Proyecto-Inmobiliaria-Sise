@@ -1,0 +1,37 @@
+﻿@model List<INMUEBLES.Entidades.PublicacionE>
+
+@{
+    ViewBag.Title = "InmueblesEnVentaOficina";
+    Layout = "~/Views/Layout/_LayoutInicio.cshtml";
+}
+
+
+<div class="subtitulo">Oficinas en Venta</div>
+
+<div class="conjuntoDeBloques">
+    <div class="bloquePublicacion">
+        @foreach (var item in Model)
+        {
+
+            <div class="publicacion">
+                <a href="/Inmuebles/VerInmueble/@item.inmuebleE.idInmueble">
+
+                    <div>@item.inmuebleE.tipoInmuebleE.descripcion</div>
+                    <div>@item.inmuebleE.distritoE.distrito</div>
+
+                    <div><img src="@item.fotoE.FotoURL" width="250" height="180" /></div>
+
+
+                    <div class="iconos">
+                        <img src="~/Iconos/Inodoro.png" width="20" />  @item.inmuebleE.baños
+                        <img src="~/Iconos/cama.png" width="20" />  @item.inmuebleE.dormitorios
+                        <img src="~/Iconos/Estacionamiento.png" width="20" /> @item.inmuebleE.garage
+                    </div>
+
+                    <div align="right">S/ @item.inmuebleE.precio</div>
+
+                </a>
+            </div>
+        }
+    </div>
+</div>

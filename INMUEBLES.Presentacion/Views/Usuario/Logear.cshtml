@@ -1,0 +1,30 @@
+﻿@model INMUEBLES.Entidades.UsuarioE
+
+@{
+    ViewBag.Title = "Logear";
+    Layout = "~/Views/Layout/_LayoutInicio.cshtml";
+}
+<div id="miModal" class="modal">
+    <div class="modal-contenido">
+        <div aligh="right"><a href="/Publicacion/Inicio"><img src="~/Iconos/Cerrar.png" width="30" /></a></div>
+        <div class="titulo">Ingresar</div>
+        <table class="tablaRegistrar">
+            @using (Html.BeginForm("Publicaciones", "Usuario", FormMethod.Post))
+            {
+                <tr>
+                    <td>Email: </td>
+                    <td><input type="text" name="txtEmail" placeholder="Email" /></td>
+                </tr>
+                <tr>
+                    <td>Contraseña: </td>
+                    <td><input type="password" name="txtContraseña" placeholder="Contraseña" /></td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Ingresar</button></td>
+                </tr>
+            }
+            
+        </table>
+        <div class="clickAqui"><a href="/Propietario/RegistrarPropietario#miModal">Registrarme</a></div>
+    </div>
+</div>
